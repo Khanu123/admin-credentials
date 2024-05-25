@@ -1,0 +1,10 @@
+{
+  "apiKey": "1234567890abcdef1234567890abcdef",
+  "authDomain": "fakeapp.firebaseapp.com",
+  "databaseURL": "https://fakeapp.firebaseio.com",
+  "projectId": "fakeapp",
+  "storageBucket": "fakeapp.appspot.com",
+  "messagingSenderId": "123456789012",
+  "appId": "1:123456789012:web:abcdef123456",
+  "measurementId": "G-ABCDEFGH"
+}
