@@ -1,10 +1,10 @@
-# config.py
 import os
+
 
 class Config:
     def __init__(self):
-        self.database_url = os.getenv('DATABASE_URL', 'default-database-url')
-        self.api_key = os.getenv('API_KEY', 'default-api-key')
+        self.database_url = os.getenv("DATABASE_URL")
+        self.api_key = os.getenv("API_KEY")
 
     def get_database_url(self):
         return self.database_url
@@ -12,7 +12,19 @@ class Config:
     def get_api_key(self):
         return self.api_key
 
+    def validate(self):
+        missing = []
+        if not self.database_url:
+            missing.append("DATABASE_URL")
+        if not self.api_key:
+            missing.append("API_KEY")
+        return missing
+
+
 if __name__ == "__main__":
     config = Config()
-    print("Database URL:", config.get_database_url())
-    print("API Key:", config.get_api_key())
+    missing_values = config.validate()
+    if missing_values:
+        print("Missing environment variables:", ", ".join(missing_values))
+    else:
+        print("Configuration loaded from environment variables.")

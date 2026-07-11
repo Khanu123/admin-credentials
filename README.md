@@ -41,6 +41,7 @@ API_TOKEN=replace_me_with_a_real_token_locally
 - Use GitHub secret scanning where available.
 - Rotate any secret that was ever committed publicly.
 - Document setup using safe placeholder values.
+- Keep only `.env.example` in the repository and load real values locally.
 
 ## Portfolio Note
 
@@ -69,3 +70,16 @@ Employers care about secure habits. This repo is framed as a defensive example o
 - How secret rotation should work after exposure.
 - Why `.env.example` is useful but `.env` should stay local.
 - How GitHub secret scanning and pre-commit checks reduce accidental leaks.
+
+## Current Code Improvements
+
+- Removed tracked local secret-style files from the repository.
+- Removed insecure default API key/database placeholder values from runtime config.
+- Added secret masking before printing values.
+- Added tests for config validation and secret redaction.
+
+## Testing
+
+```bash
+python -m unittest discover -v
+```
